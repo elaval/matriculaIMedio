@@ -29,12 +29,12 @@ script:
 after_success:
   - deploy:
       provider: s3
-      access_key_id: $AWS_ACCESS_KEY
-      secret_access_key: $AWS_SECRET
-      bucket: "visualiza.tideapps.com"
+      access_key_id: $AWS_ACCESS_KEY_ID
+      secret_access_key: $AWS_SECRET_ACCESS_KEY
+      bucket: visualiza.tideapps.com
       skip_cleanup: true
       local_dir: dist
-      upload-dir: matriculaMedia
+      upload-dir: test
 
 notifications:
   email:
