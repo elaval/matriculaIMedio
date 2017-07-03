@@ -1,6 +1,4 @@
 language: node_js
-node_js:
-- '6.10'
 
 deploy:
   provider: s3
@@ -9,34 +7,4 @@ deploy:
   bucket: visualiza.tideapps.com
   skip_cleanup: true
   local_dir: dist
-  upload-dir: e2e
-
-cache:
-  directories:
-    - node_modules
-
-branches:
-  only:
-    - master
-
-before_script:
-  - npm install -g @angular/cli
-  - npm i
-
-script:
-  - ng build --prod
-
-after_success:
-  - deploy:
-      provider: s3
-      access_key_id: $AWS_ACCESS_KEY
-      secret_access_key: $AWS_SECRET
-      bucket: "visualiza.tideapps.com"
-      skip_cleanup: true
-      local_dir: dist
-      upload-dir: matriculaMedia
-
-notifications:
-  email:
-    on_failure: change
-    on_success: change
+  upload-dir: tests3
