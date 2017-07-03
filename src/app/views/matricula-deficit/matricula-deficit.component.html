@@ -1,0 +1,180 @@
+  <div class = "row"> <!-- Encabezado -->
+  
+  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+    <h1>La educación pública <em>municipal</em> disminuye en Chile un <span class="font-xx-large negative"><strong>{{deficit / matriculaNacional8vo | percent:'1.0-0'}}</strong></span> al pasar de 8º Básico a I Medio en 2016</h1>
+        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+          <div class="widget style1 navy-bg">
+            <div class="row vertical-align">
+                <div class="col-xs-2 col-sm-2">
+                    <i class="fa fa-female fa-3x"></i>
+                </div>              
+                <div class="col-xs-2 col-sm-2">
+                    <i class="fa fa-male fa-3x"></i>
+                </div>
+                <div class="col-xs-8 col-sm-8 text-right">
+                    <h2 class="font-bold">{{matriculaNacional8vo | number}}</h2>
+                </div>                                  
+            </div>         
+            <div class="row vertical-align">
+                <div class="col-xs-12 text-left">
+                  Estudiantes en 8º básico en escuelas municipales durante 2015
+                </div>     
+            </div>
+          </div>    
+        </div>  
+        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+  
+          <div class="widget style1 navy-bg">
+            <div class="row vertical-align">
+                <div class="col-xs-2 col-sm-2">
+                    <i class="fa fa-female fa-3x"></i>
+                </div>              
+                <div class="col-xs-2 col-sm-2">
+                    <i class="fa fa-male fa-3x"></i>
+                </div>
+                <div class="col-xs-8 col-sm-8 text-right">
+                    <h2 class="font-bold">{{matriculaNacionalIro | number}}</h2>
+                </div>                                  
+            </div>
+            <div class="row vertical-align">
+                <div class="col-xs-12 text-left">
+                    Estudiantes en I Medio en liceos municipales durante 2016
+                </div>     
+            </div>
+          </div>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+  
+          <div class="widget style1 red-bg">
+            <div class="row vertical-align">
+                <div class="col-xs-2 col-sm-2">
+                    <i class="fa fa-sign-out fa-3x"></i>
+                </div>              
+
+                <div class="col-xs-10 col-sm-10 text-right">
+                    <h2 class="font-bold">{{deficit | number}}</h2>
+                </div>                                  
+            </div>
+            <div class="row vertical-align">
+                <div class="col-xs-12 text-left">
+                    Estudiantes que dejan la educación municipal
+                </div>     
+            </div>
+          </div>
+        </div>
+  </div>
+</div>
+
+
+<p>
+<p class="text-muted font-large">Pero no todas las comunas son iguales ...</p>
+
+<div class = "row section"> 
+  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+    <h1>Hay comunas con liceos municipales <strong>atractivos</strong></h1>
+
+    <p class="text-muted font-large">Aumentan matrícula municipal atrayendo a estudiantes que provienen tanto de escuelas de otras comunas, como de escuelas particulares de la misma comuna</p>
+    Por ejemplo: <span class="hide-sm-up"><br></span>
+
+    <span  *ngFor="let comuna of muestra_comunasEducacionMunicipalAtractiva" (click)="selected_comunasEducacionMunicipalAtractiva=comuna"><span class="label label-success label-comuna">{{comuna.comuna}}</span> </span> 
+
+    <app-widget-comuna *ngIf="selected_comunasEducacionMunicipalAtractiva" [comuna]="selected_comunasEducacionMunicipalAtractiva"></app-widget-comuna>
+  </div>
+</div>
+
+<div class = "row section"> 
+  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+    <h1>Hay comunas <strong>importadoras</strong></h1>
+
+    <p class="text-muted font-large">Aumentan matrícula municipal con estudiantes provenientes de otras comunas. Sin embargo, una parte de sus propios estudiantes de escuelas municipales se van a liceos particulares de la comuna.</p>
+    Por ejemplo: <span class="hide-sm-up"><br></span> 
+    <span class="label label-success label-comuna" *ngFor="let comuna of muestra_comunasImportadoras" (click)="selected_comunasImportadoras=comuna">{{comuna.comuna}}</span>
+
+    <app-widget-comuna *ngIf="selected_comunasImportadoras" [comuna]="selected_comunasImportadoras"></app-widget-comuna>
+  </div>
+</div>
+
+<div class = "row section"> 
+  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+    <h1>Hay comunas <strong>reconvertidoras</strong></h1>
+
+    <p class="text-muted font-large">Aumentan la matrícula atrayendo a estudiantes de escuelas particulares de la misma comuna. Esto logra compensar un número de estudiantes de la misma comuna que se van a liceos de otras comunas.</p>
+          Por ejemplo: <span class="hide-sm-up"><br></span> 
+    <span class="label label-success label-comuna" [class.active]="selected_comunasConvertidoras===comuna" *ngFor="let comuna of muestra_comunasConvertidoras" (click)="selected_comunasConvertidoras=comuna">{{comuna.comuna}}</span>
+
+    <app-widget-comuna *ngIf="selected_comunasConvertidoras" [comuna]="selected_comunasConvertidoras"></app-widget-comuna>
+  </div>
+</div>
+
+
+<div class = "row section"> 
+  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+    <h1>Hay comunas con liceos municipales <strong>poco atractivos</strong></h1>
+
+    <p class="text-muted font-large">Disminuye la matrícula municipal. Una parte de los estudiantes se va a liceos particulares de la misma comuna y otra parte a liceos de otras comunas.</p>
+    Por ejemplo: <span class="hide-sm-up"><br></span> 
+    <span class="label label-danger label-comuna" *ngFor="let comuna of muestraPocoAtractivas" (click)="selectedPocoAtractiva=comuna">{{comuna.comuna}} </span>
+    
+    <app-widget-comuna *ngIf="selectedPocoAtractiva" [comuna]="selectedPocoAtractiva"></app-widget-comuna>
+
+  </div>
+</div>
+
+<div class = "row section"> 
+  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+    <h1>Hay comunas <strong>básicas</strong></h1>
+    <p class="text-muted font-large">Comunas, generalmente pequeñas, que no tienen liceos de Educación Media. Sus estudiantes de 8º Básico se van a liceos de otras comunas.</p>
+    Por ejemplo: <span class="hide-sm-up"><br></span> 
+    <span class="label label-danger label-comuna" *ngFor="let comuna of muestra_comunasSinEducacionMedia" (click)="selected_comunasSinEducacionMedia=comuna">{{comuna.comuna}} </span>
+    
+    <app-widget-comuna *ngIf="selected_comunasSinEducacionMedia" [comuna]="selected_comunasSinEducacionMedia"></app-widget-comuna>
+  </div>
+</div>
+
+<div class = "row section"> 
+  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+    <h1>Hay comunas <strong>inmutables</strong></h1>
+
+    <p class="text-muted font-large"> La misma cantidad de estudiantes que proviene de Educación Básica, continúa en liceos de Educación Media de la comuna</p>
+    Por ejemplo: <span class="hide-sm-up"><br></span> 
+    <span class="label label-comuna" *ngFor="let comuna of muestra_comunasInmutables" (click)="selected_comunasInmutables=comuna">{{comuna.comuna}}</span>
+
+    <app-widget-comuna *ngIf="selected_comunasInmutables" [comuna]="selected_comunasInmutables"></app-widget-comuna>
+  </div>
+</div>
+
+<div class = "row section"> 
+  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+    <h1>Hay comunas <strong>particulares</strong></h1>
+
+    <p class="text-muted font-large">Solamente tienen Educación Media particular (no registran estudiantes matriculados en I Medio en liceos municipales)</p>
+    Por ejemplo: <span class="hide-sm-up"><br></span> 
+    <span class="label label-danger label-comuna" *ngFor="let comuna of muestra_comunasSinLiceosMunicipales" (click)="selected_comunasSinLiceosMunicipales=comuna">{{comuna.comuna}} </span>
+    
+    <app-widget-comuna *ngIf="muestra_comunasSinLiceosMunicipales" [comuna]="selected_comunasSinLiceosMunicipales"></app-widget-comuna>
+
+  </div>
+</div>
+
+
+
+
+
+<div class = "row section"> 
+  <h1>Busca tu propia comuna</h1>
+
+  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+    <input type="search" class="form-control" placeholder="Nombre de la comuna a buscar" [(ngModel)]="higlightText" (keydown)="changeHiglightSelection(higlightText)" (keyup)="changeHiglightSelection(higlightText)"/>
+  </div>  
+
+  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+    <app-widget-comuna *ngFor="let comuna of selectedComunas" [comuna]="comuna"></app-widget-comuna>
+  </div>
+
+</div>
+
+
+
+
+
+

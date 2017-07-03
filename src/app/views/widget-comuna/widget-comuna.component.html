@@ -1,0 +1,60 @@
+<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 well sample-comuna">
+      <h2 *ngIf="comuna.deficit < 0">La educación municipal en {{comuna.comuna}} aumentó en {{-comuna.deficit}} estudiantes (<span class="font-xx-large positive"><strong>{{-comuna.deficit / comuna.matricula8vo | percent:'1.0-0'}}</strong></span> de aumento) </h2>
+      <h2 *ngIf="comuna.deficit > 0">La educación municipal en {{comuna.comuna}} disminuyó en {{comuna.deficit}} estudiantes (<span class="font-xx-large negative"><strong>{{comuna.deficit / comuna.matricula8vo | percent:'1.0-0'}}</strong></span> de disminución)</h2>
+      <h2 *ngIf="comuna.deficit === 0">La educación municipal en {{comuna.comuna}} no modificó la cantidad de estudiantes</h2>
+
+      <div class="col-xs-12 col-sm-6 col-md-3 col-lg-5">
+        <div class="widget style1 navy-bg">
+          <div class="row vertical-align">               
+            <div class="col-xs-2 col-sm-2 col-lg-1">
+                <i class="fa fa-female fa-3x"></i>
+            </div>              
+            <div class="col-xs-2 col-sm-2 col-lg-1">
+                <i class="fa fa-male fa-3x"></i>
+            </div>
+            <div class="col-xs-8 col-sm-8 col-lg-10 text-right">
+                <h2 class="font-bold">{{comuna.matricula8vo | number}}</h2>
+            </div>                                  
+          </div>          
+          <div class="row vertical-align">
+              <div class="col-xs-12 text-left">
+                  Estudiantes en 8º básico en escuelas municipales (2015)
+              </div>                                  
+          </div>
+        </div>    
+      </div>  
+      <div class="col-xs-12 col-sm-6 col-md-3 col-lg-5">
+
+        <div class="widget style1 navy-bg">
+          <div class="row vertical-align">
+            <div class="col-xs-2 col-sm-2 col-lg-1">
+                  <i class="fa fa-female fa-3x"></i>
+              </div>              
+            <div class="col-xs-2 col-sm-2 col-lg-1">
+                  <i class="fa fa-male fa-3x"></i>
+              </div>
+              <div class="col-xs-8  col-sm-8 col-lg-10 text-right">
+                  <h2 class="font-bold">{{comuna.matriculaI | number}}</h2>
+              </div>                                  
+          </div>
+          <div class="row vertical-align">
+              <div class="col-xs-12 text-left">
+                  Estudiantes en I Medio en liceos municipales (2016)
+              </div>                                  
+          </div>
+        </div>
+      </div>
+      <div class="col-xs-12 col-sm-6 col-md-3 col-lg-5 nopadding">
+        <app-widget-migracion-intercomunal [comuna]="comuna"></app-widget-migracion-intercomunal>
+      </div>      
+      <div class="col-xs-12 col-sm-6 col-md-3 col-lg-5 nopadding">
+        <app-widget-migracion-intracomunal [comuna]="comuna"></app-widget-migracion-intracomunal>
+      </div>
+      
+      <!-- Students come from other other comunas -->
+      <div class="row" >
+  
+        <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+        </div>
+      </div>
+</div>

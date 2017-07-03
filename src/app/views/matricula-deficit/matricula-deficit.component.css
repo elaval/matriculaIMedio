@@ -1,0 +1,38 @@
+.large-metric {
+    font-size: xx-large;
+}
+
+.negative {
+    color: #ed5565;
+}
+
+.positive {
+    color: #1c84c6;
+}
+
+.sample-comuna {
+    margin-top: 10px;
+}
+
+.label-comuna {
+    margin-right: 4px;
+    margin-top: 2px;
+    display: inline-block;
+    cursor: pointer;
+}
+
+span .actie {
+    padding: 40px
+}
+
+.font-xx-large {
+    font-size: xx-large;
+}
+
+.font-large {
+    font-size: large;
+}
+
+.section {
+    margin-top: 24px
+}
