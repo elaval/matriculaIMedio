@@ -24,7 +24,7 @@ after_success:
       secret_access_key: $AWS_SECRET_ACCESS_KEY
       bucket: visualiza.tideapps.com
       skip_cleanup: true
-      local_dir: dist
+      local_dir: tests3
       upload-dir: test
 
 notifications:
