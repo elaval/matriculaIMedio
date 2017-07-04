@@ -23,7 +23,7 @@ deploy:
   secret_access_key: $AWS_SECRET_ACCESS_KEY
   bucket: visualiza.tideapps.com
   skip_cleanup: true
-  upload-dir: test
+  upload-dir: matriculaMedia
   local_dir: dist
 
 notifications:
