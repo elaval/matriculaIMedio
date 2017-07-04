@@ -24,7 +24,7 @@ deploy:
   bucket: visualiza.tideapps.com
   skip_cleanup: true
   upload-dir: test
-  local_dir: tests3
+  local_dir: dist
 
 notifications:
   email:
