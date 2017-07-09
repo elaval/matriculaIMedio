@@ -16,8 +16,8 @@ before_script:
   - npm i
 
 script:
-  - if [ "$TRAVIS_BRANCH" = "development" ]; then ng build --prod --base-href /matriculaMedia/; fi
-  - if [ "$TRAVIS_BRANCH" = "master" ]; then ng build --prod --base-href /devMatriculaMedia/; fi
+  - if [ "$TRAVIS_BRANCH" = "release" ]; then ng build --prod --base-href /matriculaMedia/; fi
+  - if [ "$TRAVIS_BRANCH" = "development" ]; then ng build --prod --base-href /devMatriculaMedia/; fi
 
 deploy:
   - provider: s3
