@@ -15,7 +15,7 @@ before_script:
   - npm i
 
 script:
-  - ng build --prod
+  - ng build --prod --base-href /matriculaMedia/
 
 deploy:
   provider: s3
